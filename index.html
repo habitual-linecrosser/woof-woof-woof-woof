@@ -41,16 +41,19 @@
     <div class="editor">
         <h2>Edit Your Page</h2>
         <label>Name:</label>
-        <input type="text" id="nameInput" placeholder="YOU KNOW YOURE OWN NAME, DUMB MUTT FAG">
+        <input type="text" id="nameInput" placeholder="YOU KNOW YOURE OWN NAME, DUMB MUTT">
 
         <label>About Me:</label>
-        <textarea id="aboutInput" placeholder="Fucking type, you faggot!!!"></textarea>
+        <textarea id="aboutInput" placeholder="Fucking type!!!"></textarea>
 
         <label>Favorite Game:</label>
         <input type="text" id="gameInput" placeholder="KKKKKKKIIIIILLL YOURSELF *NOW*">
 
-        <label>puppy...:</label>
-        <input type="text" id="fagInput" placeholder="woof woof woof woofwwwwwoooooooffffff">
+
+
+
+        <label>Background Image URL:</label>
+        <input type="text" id="bgInput" placeholder="Paste image URL here">
 
     </div>
 
@@ -59,7 +62,6 @@
         <h1 id="displayName">Your Name</h1>
         <p id="displayAbout">Your bio will appear here...</p>
         <p><strong>Favorite Game:</strong> <span id="displayGame">None yet</span></p>
-        <p><strong>puppy...:</strong> <span id="displayFag">None yet</span></p>
 
         <p><button id="youtubeButton">Latest Video (totally not a rickroll):</button></p>
     </div>
@@ -69,13 +71,12 @@
         const nameInput = document.getElementById('nameInput');
         const aboutInput = document.getElementById('aboutInput');
         const gameInput = document.getElementById('gameInput');
-        const fagInput = document.getElementById('fagInput');
 
         // Get the display elements
         const displayName = document.getElementById('displayName');
         const displayAbout = document.getElementById('displayAbout');
         const displayGame = document.getElementById('displayGame');
-        const displayFag = document.getElementById('displayFag');
+    
 
         nameInput.addEventListener('input', function() {
             displayName.textContent = nameInput.value || 'Your Name';
@@ -89,16 +90,65 @@
             displayGame.textContent = gameInput.value || 'None yet';
         });
 
-        
-        fagInput.addEventListener('input', function() {
-            displayFag.textContent = fagInput.value || 'None yet';
-        });
-
         // YouTube button
         const youtubeButton = document.getElementById('youtubeButton');
         
         youtubeButton.addEventListener('click', function() {
             window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        });
+
+        // Background image
+        const bgInput = document.getElementById('bgInput');
+        
+        bgInput.addEventListener('input', function() {
+            if (bgInput.value) {
+                document.body.style.backgroundImage = `url(${bgInput.value})`;
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+                document.body.style.backgroundAttachment = 'fixed';
+            } else {
+                document.body.style.backgroundImage = 'none';
+            }
+        });
+
+        // Save to localStorage whenever anything changes
+        nameInput.addEventListener('input', function() {
+            localStorage.setItem('name', nameInput.value);
+        });
+
+        aboutInput.addEventListener('input', function() {
+            localStorage.setItem('about', aboutInput.value);
+        });
+
+        gameInput.addEventListener('input', function() {
+            localStorage.setItem('game', gameInput.value);
+        });
+
+        bgInput.addEventListener('input', function() {
+            localStorage.setItem('background', bgInput.value);
+        });
+
+        // Load saved data when page loads
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('name')) {
+                nameInput.value = localStorage.getItem('name');
+                displayName.textContent = nameInput.value;
+            }
+            if (localStorage.getItem('about')) {
+                aboutInput.value = localStorage.getItem('about');
+                displayAbout.textContent = aboutInput.value;
+            }
+            if (localStorage.getItem('game')) {
+                gameInput.value = localStorage.getItem('game');
+                displayGame.textContent = gameInput.value;
+            }
+            if (localStorage.getItem('background')) {
+                bgInput.value = localStorage.getItem('background');
+                document.body.style.backgroundImage = `url(${bgInput.value})`;
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+                document.body.style.backgroundAttachment = 'fixed';
+            }
         });
     </script>
 </body>
