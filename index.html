@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>stinky faggot!</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .editor {
+            background-color: #f5c4ca;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .preview {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor">
+        <h2>Edit Your Page</h2>
+        <label>Name:</label>
+        <input type="text" id="nameInput" placeholder="YOU KNOW YOURE OWN NAME, DUMB MUTT FAG">
+
+        <label>About Me:</label>
+        <textarea id="aboutInput" placeholder="Fucking type, you faggot!!!"></textarea>
+
+        <label>Favorite Game:</label>
+        <input type="text" id="gameInput" placeholder="KKKKKKKIIIIILLL YOURSELF *NOW*">
+
+        <label>puppy...:</label>
+        <input type="text" id="fagInput" placeholder="woof woof woof woofwwwwwoooooooffffff">
+
+    </div>
+
+
+    <div class="preview">
+        <h1 id="displayName">Your Name</h1>
+        <p id="displayAbout">Your bio will appear here...</p>
+        <p><strong>Favorite Game:</strong> <span id="displayGame">None yet</span></p>
+        <p><strong>puppy...:</strong> <span id="displayFag">None yet</span></p>
+
+        <p><button id="youtubeButton">Latest Video (totally not a rickroll):</button></p>
+    </div>
+
+    <script>
+        // Get the input fields
+        const nameInput = document.getElementById('nameInput');
+        const aboutInput = document.getElementById('aboutInput');
+        const gameInput = document.getElementById('gameInput');
+        const fagInput = document.getElementById('fagInput');
+
+        // Get the display elements
+        const displayName = document.getElementById('displayName');
+        const displayAbout = document.getElementById('displayAbout');
+        const displayGame = document.getElementById('displayGame');
+        const displayFag = document.getElementById('displayFag');
+
+        nameInput.addEventListener('input', function() {
+            displayName.textContent = nameInput.value || 'Your Name';
+        });
+
+        aboutInput.addEventListener('input', function() {
+            displayAbout.textContent = aboutInput.value || 'Your bio will appear here...';
+        });
+
+        gameInput.addEventListener('input', function() {
+            displayGame.textContent = gameInput.value || 'None yet';
+        });
+
+        
+        fagInput.addEventListener('input', function() {
+            displayFag.textContent = fagInput.value || 'None yet';
+        });
+
+        // YouTube button
+        const youtubeButton = document.getElementById('youtubeButton');
+        
+        youtubeButton.addEventListener('click', function() {
+            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        });
+    </script>
+</body>
+</html>
